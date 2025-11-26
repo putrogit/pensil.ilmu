@@ -407,7 +407,7 @@ main {
 /* Teks bismillah dengan font arabic */
 .hero-card-title {
   font-family: "Amiri", "Times New Roman", serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #0f172a;
   letter-spacing: 0.02em;
 }
@@ -1219,4 +1219,5 @@ footer {
     justify-content: flex-end;
   }
 }
+
 
