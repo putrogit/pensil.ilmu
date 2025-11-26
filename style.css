@@ -70,17 +70,13 @@ header {
   color: var(--cream);
 }
 
-.brand-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, var(--gold), var(--emerald));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
-  position: relative;
-  overflow: hidden;
+..brand-icon {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: auto;
+  height: auto;
+  padding: 0;
 }
 
 .brand-icon::after {
@@ -1071,3 +1067,4 @@ footer {
     justify-content: flex-end;
   }
 }
+
