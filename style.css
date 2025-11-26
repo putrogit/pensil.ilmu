@@ -1,54 +1,77 @@
+/* ================================
+   1. VARIABEL GLOBAL (PALET WARNA)
+   ================================ */
 :root {
-  --emerald: #0f766e;    /* hijau zamrud */
-  --emerald-soft: #14b8a6;
-  --gold: #fbbf24;       /* emas hangat */
-  --cream: #fef3c7;
-  --dark: #020617;       /* biru tua sangat gelap */
-  --light: #ffffff;
-  --muted: #64748b;
-  --bg-soft: #f1f5f9;
-  --radius-xl: 1.5rem;
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+  --emerald: #0f766e;        /* Hijau zamrud utama (warna brand) */
+  --emerald-soft: #14b8a6;   /* Hijau zamrud versi lebih lembut */
+  --gold: #fbbf24;           /* Warna emas untuk aksen penting */
+  --cream: #fef3c7;          /* Krem lembut (contoh teks brand) */
+  --dark: #020617;           /* Biru tua sangat gelap (teks / bg) */
+  --light: #ffffff;          /* Putih */
+  --muted: #64748b;          /* Abu-abu lembut untuk teks penjelasan */
+  --bg-soft: #f1f5f9;        /* Background lembut overall */
+  --radius-xl: 1.5rem;       /* Sudut besar untuk kartu / box */
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18); /* Bayangan halus */
 }
 
+/* ================================
+   2. RESET DASAR DAN BODY
+   ================================ */
+
+/* Reset dasar supaya padding & margin default browser dihapus */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;  /* Lebih mudah hitung lebar elemen */
   margin: 0;
   padding: 0;
 }
 
+/* Scroll lembut saat klik link anchor (#id) */
 html {
   scroll-behavior: smooth;
 }
 
+/* Style dasar body website */
 body {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top left, #f1f5f9 0, #e2e8f0 30%, #f8fafc 70%);
-  color: #0f172a;
-  line-height: 1.6;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /* Font utama */
+  background: radial-gradient(circle at top left, #f1f5f9 0, #e2e8f0 30%, #f8fafc 70%); /* Background gradasi lembut */
+  color: #0f172a;           /* Warna teks utama */
+  line-height: 1.6;         /* Jarak antar baris teks */
 }
 
+/* Semua link default tanpa garis bawah & warna ikut parent */
 a {
   text-decoration: none;
   color: inherit;
 }
-/* Layout utama */
+
+/* ================================
+   3. LAYOUT UTAMA & HEADER (NAVBAR)
+   ================================ */
+
+/* Container umum untuk membatasi lebar konten ke tengah */
 .container {
   width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+  max-width: 1120px;        /* Lebar maksimal di layar besar */
+  margin: 0 auto;           /* Center horizontal */
+  padding: 0 1.25rem;       /* Padding kanan–kiri */
 }
 
+/* Header / navbar fix di atas saat di-scroll */
 header {
-  position: sticky;
+  position: sticky;         /* Nempel di atas saat scroll */
   top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.6));
-  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  z-index: 50;              /* Di atas elemen lain */
+  backdrop-filter: blur(12px); /* Efek blur kaca */
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.92),
+    rgba(15, 23, 42, 0.88),
+    rgba(15, 23, 42, 0.6)
+  );                         /* Gradasi gelap transparan */
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4); /* Garis tipis bawah navbar */
 }
 
+/* Baris navbar: logo di kiri, menu di tengah, tombol di kanan */
 .nav {
   display: flex;
   align-items: center;
@@ -57,31 +80,44 @@ header {
   gap: 1rem;
 }
 
+/* ================================
+   4. BRAND (LOGO + NAMA YAYASAN)
+   ================================ */
+
+/* Wrapper untuk logo + teks brand */
 .brand {
-  display: flex;
+  display: flex;            /* Logo dan teks sejajar horizontal */
   align-items: center;
   gap: 0.75rem;
-  color: var(--cream);
+  color: var(--cream);      /* Warna teks brand */
 }
 
+/* Wrapper teks: judul & subjudul */
 .brand-text {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   /* Disusun vertikal */
   gap: 0.1rem;
 }
 
+/* Judul utama brand (nama yayasan) */
 .brand-title {
   font-weight: 600;
   font-size: 0.98rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;   /* Huruf agak renggang */
+  text-transform: uppercase;/* Semua huruf kapital */
 }
 
+/* Subjudul kecil di bawah nama yayasan */
 .brand-subtitle {
   font-size: 0.72rem;
   color: #cbd5f5;
 }
 
+/* ================================
+   5. NAVIGATION LINKS (MENU ATAS)
+   ================================ */
+
+/* List menu di navbar */
 .nav-links {
   display: flex;
   align-items: center;
@@ -90,39 +126,49 @@ header {
   color: #e5e7eb;
 }
 
+/* Tiap link dalam navbar */
 .nav-links a {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   padding: 0.45rem 0.65rem;
-  border-radius: 999px;
+  border-radius: 999px;     /* Bentuk pil/kapsul */
   transition: background 0.18s ease, color 0.18s ease, transform 0.1s ease;
   font-weight: 400;
 }
 
+/* Ikon kecil di menu */
 .nav-links a span.icon {
   font-size: 0.92rem;
   opacity: 0.9;
 }
 
+/* Label teks menu (disembunyikan di layar kecil, diatur di media query) */
 .nav-links a span.label {
   display: none;
 }
 
+/* Efek saat hover menu */
 .nav-links a:hover {
-  background: rgba(15, 118, 110, 0.45);
+  background: rgba(15, 118, 110, 0.45); /* Hijau transparan */
   color: #fefce8;
-  transform: translateY(-1px);
+  transform: translateY(-1px);          /* Sedikit naik */
 }
 
+/* Wrapper tombol di kanan navbar */
 .nav-cta {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 
+/* ================================
+   6. TOMBOL GLOBAL (BUTTON)
+   ================================ */
+
+/* Style dasar semua tombol */
 .btn {
-  border-radius: 999px;
+  border-radius: 999px;           /* Bentuk pil */
   padding: 0.55rem 1.1rem;
   font-size: 0.84rem;
   font-weight: 500;
@@ -132,9 +178,10 @@ header {
   align-items: center;
   gap: 0.5rem;
   transition: all 0.18s ease;
-  white-space: nowrap;
+  white-space: nowrap;            /* Teks tidak turun ke baris bawah */
 }
 
+/* Tombol utama hijau (Donasi, dll.) */
 .btn-primary {
   background: linear-gradient(135deg, var(--emerald), #0f766e);
   color: #ecfeff;
@@ -142,52 +189,64 @@ header {
   box-shadow: 0 12px 30px rgba(15, 118, 110, 0.6);
 }
 
+/* Efek hover tombol utama */
 .btn-primary:hover {
   background: linear-gradient(135deg, #0f766e, var(--emerald-soft));
   transform: translateY(-1px);
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
 }
 
+/* Tombol gaya ghost (outline, background transparan) */
 .btn-ghost {
   border-color: rgba(148, 163, 184, 0.6);
   background: rgba(15, 23, 42, 0.6);
   color: #e5e7eb;
 }
 
+/* Hover tombol ghost */
 .btn-ghost:hover {
   border-color: rgba(248, 250, 252, 0.8);
   background: rgba(15, 23, 42, 0.9);
   color: #fefce8;
 }
 
-/* Hero / Beranda */
+/* ================================
+   7. HERO / BERANDA (SECTION PERTAMA)
+   ================================ */
+
+/* Jarak bawah konten utama */
 main {
   padding-bottom: 3rem;
 }
 
+/* Section hero (beranda) */
 .hero-section {
   padding: 2.5rem 0 1.5rem;
 }
 
+/* Grid hero: teks di kiri, kartu di kanan (di layar besar) */
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 1.25fr); /* Default 1 kolom */
   gap: 2rem;
   align-items: center;
 }
 
+/* Jika layar >= 900px, jadi 2 kolom */
 @media (min-width: 900px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
   }
 }
 
+/* Kolom teks hero */
 .hero-text {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+/* Label kecil di atas judul (eyebrow) */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -201,17 +260,20 @@ main {
   width: fit-content;
 }
 
+/* Ikon pada eyebrow (bintang bulan) */
 .eyebrow i {
   color: var(--gold);
 }
 
+/* Judul besar hero */
 .hero-title {
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-size: clamp(1.9rem, 4vw, 2.6rem); /* Responsif mengikuti lebar layar */
   line-height: 1.2;
   color: #020617;
   letter-spacing: -0.03em;
 }
 
+/* Span highlight dalam judul (gradasi hijau–emas) */
 .hero-title span.highlight {
   background: linear-gradient(120deg, var(--emerald), var(--emerald-soft), var(--gold));
   -webkit-background-clip: text;
@@ -219,24 +281,28 @@ main {
   font-weight: 700;
 }
 
+/* Subjudul hero */
 .hero-subtitle {
   font-size: 0.98rem;
   color: var(--muted);
-  max-width: 34rem;
+  max-width: 34rem;          /* Biar teks tidak terlalu lebar */
 }
 
+/* Bagian subjudul yang ditebalkan */
 .hero-subtitle strong {
   color: #0f172a;
   font-weight: 600;
 }
 
+/* Wrapper tombol & catatan hero */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;           /* Kalau sempit, tombol bisa turun */
   gap: 0.8rem;
   align-items: center;
 }
 
+/* Catatan kecil di samping tombol (Amanah, transparan, dll.) */
 .hero-note {
   font-size: 0.8rem;
   color: var(--muted);
@@ -247,14 +313,20 @@ main {
   margin-right: 0.25rem;
 }
 
+/* ================================
+   8. KARTU STATISTIK DI HERO
+   ================================ */
+
+/* Grid statistik (jumlah mushaf, lembaga, provinsi) */
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 kolom */
   gap: 0.8rem;
   margin-top: 2rem;
   max-width: 480px;
 }
 
+/* Kartu individual statistik */
 .stat-card {
   border-radius: 1.1rem;
   padding: 0.9rem 0.85rem;
@@ -263,32 +335,41 @@ main {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
 }
 
+/* Label kecil di atas angka */
 .stat-label {
   font-size: 0.7rem;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
 
+/* Angka besar statistik */
 .stat-value {
   font-size: 1.1rem;
   font-weight: 600;
   color: #0f172a;
 }
 
+/* Warna hijau untuk angka penting */
 .stat-value span.accent {
   color: var(--emerald);
 }
 
+/* Teks kecil di bawah statistik */
 .stat-foot {
   font-size: 0.7rem;
   margin-top: 0.2rem;
   color: #9ca3af;
 }
 
+/* ================================
+   9. KARTU HIJAU DI SAMPING (VISUAL HERO)
+   ================================ */
+
 .hero-visual {
   position: relative;
 }
 
+/* Kartu utama hijau–emas di hero */
 .hero-card {
   border-radius: var(--radius-xl);
   background: radial-gradient(circle at top left, #fefce8, #ecfdf5 45%, #e0f2fe);
@@ -300,6 +381,7 @@ main {
   isolation: isolate;
 }
 
+/* Layer efek cahaya di atas kartu */
 .hero-card::before {
   content: "";
   position: absolute;
@@ -311,6 +393,7 @@ main {
   mix-blend-mode: soft-light;
 }
 
+/* Header pada kartu (kaligrafi + ikon masjid) */
 .hero-card-header {
   display: flex;
   justify-content: space-between;
@@ -321,6 +404,7 @@ main {
   z-index: 1;
 }
 
+/* Teks bismillah dengan font arabic */
 .hero-card-title {
   font-family: "Amiri", "Times New Roman", serif;
   font-size: 1.4rem;
@@ -328,11 +412,13 @@ main {
   letter-spacing: 0.02em;
 }
 
+/* Hadits singkat di bawah bismillah */
 .hero-card-sub {
   font-size: 0.8rem;
   color: #4b5563;
 }
 
+/* Kotak hijau berisi teks program Seribu Al-Qur'an */
 .hero-quran {
   position: relative;
   z-index: 1;
@@ -349,6 +435,7 @@ main {
   align-items: center;
 }
 
+/* Ikon kitab di dalam kartu hijau */
 .hero-quran-icon {
   width: 52px;
   height: 52px;
@@ -361,6 +448,7 @@ main {
   position: relative;
 }
 
+/* Garis putus-putus di sekitar ikon kitab */
 .hero-quran-icon::after {
   content: "";
   position: absolute;
@@ -370,11 +458,13 @@ main {
   opacity: 0.8;
 }
 
+/* Ikon di tengah kartu */
 .hero-quran-icon i {
   font-size: 1.4rem;
   color: #fefce8;
 }
 
+/* Judul program dalam kartu hijau */
 .hero-quran-text h3 {
   font-size: 0.98rem;
   font-weight: 600;
@@ -382,11 +472,13 @@ main {
   color: #f9fafb;
 }
 
+/* Deskripsi pendek program */
 .hero-quran-text p {
   font-size: 0.78rem;
   color: #d1fae5;
 }
 
+/* Footer kartu hero (badge + target mushaf) */
 .hero-card-footer {
   position: relative;
   z-index: 1;
@@ -399,6 +491,7 @@ main {
   color: #4b5563;
 }
 
+/* Badge hijau “fokus daerah terpencil” */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -414,21 +507,28 @@ main {
   color: #22c55e;
 }
 
+/* Span highlight untuk target mushaf */
 .hero-card-footer span.highlight {
   color: var(--emerald);
   font-weight: 500;
 }
 
-/* Section umum */
+/* ================================
+   10. SECTION UMUM (JUDUL, DESKRIPSI)
+   ================================ */
+
+/* Jarak tiap section (Tentang, Program, Donasi, Kontak) */
 section {
   padding: 2.5rem 0 1.5rem;
 }
 
+/* Wrapper judul section (ditengah) */
 .section-heading {
   text-align: center;
   margin-bottom: 1.8rem;
 }
 
+/* Label kecil di atas judul section */
 .section-eyebrow {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -437,6 +537,7 @@ section {
   font-weight: 600;
 }
 
+/* Judul besar section */
 .section-title {
   margin-top: 0.4rem;
   font-size: 1.5rem;
@@ -444,6 +545,7 @@ section {
   color: #020617;
 }
 
+/* Deskripsi kecil di bawah judul section */
 .section-desc {
   margin-top: 0.4rem;
   font-size: 0.9rem;
@@ -453,7 +555,11 @@ section {
   margin-right: auto;
 }
 
-/* Tentang Kami */
+/* ================================
+   11. TENTANG KAMI (GRID & KARTU)
+   ================================ */
+
+/* Grid untuk 2 kolom (sejarah + tim) */
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr);
@@ -461,12 +567,14 @@ section {
   align-items: flex-start;
 }
 
+/* Jadi 2 kolom di layar >= 900px */
 @media (min-width: 900px) {
   .about-grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
   }
 }
 
+/* Style kartu umum (dipakai di banyak tempat) */
 .card {
   border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.96);
@@ -485,6 +593,7 @@ section {
   color: var(--muted);
 }
 
+/* Daftar pill (info kecil berbentuk kapsul) */
 .pill-list {
   display: flex;
   flex-wrap: wrap;
@@ -492,6 +601,7 @@ section {
   margin-top: 0.9rem;
 }
 
+/* Satu pill kecil */
 .pill {
   font-size: 0.78rem;
   padding: 0.4rem 0.7rem;
@@ -501,10 +611,12 @@ section {
   color: #0f172a;
 }
 
+/* Kartu visi dengan garis hijau di kiri */
 .vision {
   border-left: 3px solid var(--emerald);
 }
 
+/* Judul visi (font arabic-style) */
 .vision-title {
   font-family: "Amiri", serif;
   font-size: 1.15rem;
@@ -512,11 +624,13 @@ section {
   margin-bottom: 0.4rem;
 }
 
+/* Teks visi */
 .vision-sub {
   font-size: 0.88rem;
   color: var(--muted);
 }
 
+/* List misi dengan icon cek hijau */
 .mission-list {
   margin-top: 0.7rem;
   display: grid;
@@ -536,6 +650,7 @@ section {
   margin-top: 0.1rem;
 }
 
+/* Grid kartu tim inti */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -543,6 +658,7 @@ section {
   margin-top: 0.4rem;
 }
 
+/* Kartu satu orang tim */
 .team-card {
   border-radius: 1rem;
   padding: 0.9rem 0.85rem;
@@ -567,24 +683,31 @@ section {
   color: #9ca3af;
 }
 
-/* Program */
+/* ================================
+   12. PROGRAM (CARD + GALERI)
+   ================================ */
+
+/* Grid program dan galeri */
 .program-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 
+/* Di layar besar, jadi 2 kolom */
 @media (min-width: 800px) {
   .program-grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
   }
 }
 
+/* List kartu program */
 .program-list {
   display: grid;
   gap: 0.9rem;
 }
 
+/* Satu kartu program */
 .program-card {
   border-radius: 1.1rem;
   padding: 1.1rem 1rem;
@@ -597,6 +720,7 @@ section {
   align-items: flex-start;
 }
 
+/* Lingkaran hijau dengan ikon program di dalam */
 .program-icon {
   width: 42px;
   height: 42px;
@@ -614,17 +738,20 @@ section {
   margin-bottom: 0.25rem;
 }
 
+/* Meta info kecil program (target, segment) */
 .program-meta {
   font-size: 0.75rem;
   color: #9ca3af;
   margin-bottom: 0.35rem;
 }
 
+/* Paragraf deskripsi program */
 .program-card p {
   font-size: 0.86rem;
   color: var(--muted);
 }
 
+/* Kartu galeri (sebelah kanan) */
 .gallery-card {
   border-radius: var(--radius-xl);
   padding: 1.1rem;
@@ -634,6 +761,7 @@ section {
   border: 1px solid rgba(148, 163, 184, 0.7);
 }
 
+/* Header galeri (judul + ikon) */
 .gallery-header {
   display: flex;
   justify-content: space-between;
@@ -645,11 +773,13 @@ section {
   font-size: 0.98rem;
 }
 
+/* Tagline galeri */
 .gallery-tagline {
   font-size: 0.8rem;
   color: #cbd5f5;
 }
 
+/* Grid 3 kotak galeri */
 .gallery-grid {
   margin-top: 0.8rem;
   display: grid;
@@ -657,6 +787,7 @@ section {
   gap: 0.4rem;
 }
 
+/* Satu item galeri (placeholder untuk foto/video) */
 .gallery-item {
   position: relative;
   border-radius: 0.75rem;
@@ -671,14 +802,17 @@ section {
   padding: 0.3rem;
 }
 
+/* Item ke-2 warna gradasi hijau lain */
 .gallery-item:nth-child(2) {
   background: linear-gradient(135deg, #22c55e, #16a34a);
 }
 
+/* Item ke-3 warna oranye */
 .gallery-item:nth-child(3) {
   background: linear-gradient(135deg, #f97316, #ea580c);
 }
 
+/* Teks di dalam galeri */
 .gallery-item span {
   position: relative;
   z-index: 1;
@@ -686,6 +820,7 @@ section {
   text-shadow: 0 2px 6px rgba(15, 23, 42, 0.8);
 }
 
+/* Teks kecil “Gambar/Video” sebagai placeholder frame */
 .gallery-item::after {
   content: "Gambar/Video";
   position: absolute;
@@ -701,11 +836,16 @@ section {
   padding-bottom: 0.1rem;
 }
 
-/* Donasi */
+/* ================================
+   13. DONASI (GRID + KARTU REKENING)
+   ================================ */
+
+/* Background lembut section donasi */
 .donation-section {
   background: radial-gradient(circle at top, rgba(15, 118, 110, 0.06), transparent 55%);
 }
 
+/* Grid donasi: info kiri, transparansi kanan */
 .donation-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr);
@@ -713,18 +853,21 @@ section {
   align-items: flex-start;
 }
 
+/* Layar besar: 2 kolom */
 @media (min-width: 900px) {
   .donation-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
   }
 }
 
+/* Paragraf penjelasan donasi */
 .donation-info p {
   font-size: 0.9rem;
   color: var(--muted);
   margin-bottom: 0.6rem;
 }
 
+/* List alokasi penggunaan donasi */
 .donation-usage {
   margin-top: 0.6rem;
   display: grid;
@@ -743,6 +886,7 @@ section {
   margin-top: 0.1rem;
 }
 
+/* Kartu rekening bank (background gelap) */
 .bank-card {
   margin-top: 0.9rem;
   border-radius: 1.1rem;
@@ -754,6 +898,7 @@ section {
   box-shadow: var(--shadow-soft);
 }
 
+/* Baris satu info (Bank / no rek / atas nama) */
 .bank-row {
   display: flex;
   justify-content: space-between;
@@ -770,6 +915,7 @@ section {
   font-weight: 500;
 }
 
+/* Grid paket donasi */
 .donation-packages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -777,6 +923,7 @@ section {
   margin-top: 0.8rem;
 }
 
+/* Satu kartu paket donasi */
 .donation-card {
   border-radius: 1.1rem;
   padding: 1rem 0.9rem;
@@ -787,6 +934,7 @@ section {
   overflow: hidden;
 }
 
+/* Badge kecil di pojok (Terpilih, dll.) */
 .donation-card .badge {
   position: absolute;
   top: 0.6rem;
@@ -799,23 +947,27 @@ section {
   border: 1px solid rgba(74, 222, 128, 0.6);
 }
 
+/* Nama paket donasi */
 .donation-name {
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: #0f172a;
 }
 
+/* Perkiraan harga paket */
 .donation-price {
   font-size: 0.85rem;
   color: var(--emerald);
   margin-bottom: 0.3rem;
 }
 
+/* Catatan pendek di bawah harga */
 .donation-note {
   font-size: 0.78rem;
   color: var(--muted);
 }
 
+/* Kartu transparansi (kanan) */
 .transparency-card {
   border-radius: var(--radius-xl);
   padding: 1.1rem 1rem;
@@ -825,6 +977,7 @@ section {
   box-shadow: 0 10px 28px rgba(180, 83, 9, 0.3);
 }
 
+/* Progress bar target donasi */
 .progress-bar {
   margin-top: 0.6rem;
   height: 7px;
@@ -834,11 +987,12 @@ section {
 }
 
 .progress-fill {
-  width: 72%;
+  width: 72%; /* Contoh: 72% tercapai (dummy) */
   height: 100%;
   background: linear-gradient(90deg, #16a34a, #22c55e, #84cc16);
 }
 
+/* Info kecil di bawah progress bar */
 .transparency-meta {
   margin-top: 0.5rem;
   display: flex;
@@ -847,24 +1001,31 @@ section {
   color: #6b7280;
 }
 
-/* Kontak */
+/* ================================
+   14. KONTAK (FORM + INFO SAMPING)
+   ================================ */
+
+/* Grid form & info kontak */
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1.4rem;
 }
 
+/* Di layar besar jadi 2 kolom */
 @media (min-width: 850px) {
   .contact-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
   }
 }
 
+/* Form kontak */
 form {
   display: grid;
   gap: 0.7rem;
 }
 
+/* Satu field input (label + input/textarea) */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -877,6 +1038,7 @@ form {
   color: #0f172a;
 }
 
+/* Input dan textarea style */
 .form-field input,
 .form-field textarea {
   border-radius: 0.75rem;
@@ -888,6 +1050,7 @@ form {
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
+/* Efek saat fokus input/textarea */
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: var(--emerald);
@@ -895,11 +1058,13 @@ form {
   box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.6);
 }
 
+/* Minimal tinggi textarea */
 .form-field textarea {
   min-height: 110px;
   resize: vertical;
 }
 
+/* Kartu info kontak di kanan */
 .contact-info {
   border-radius: var(--radius-xl);
   padding: 1.2rem 1.1rem;
@@ -921,6 +1086,7 @@ form {
   margin-bottom: 0.7rem;
 }
 
+/* Baris informasi (alamat, WA, email) */
 .contact-row {
   display: flex;
   align-items: flex-start;
@@ -933,6 +1099,7 @@ form {
   color: var(--gold);
 }
 
+/* Link media sosial */
 .social-links {
   margin-top: 0.6rem;
   display: flex;
@@ -956,12 +1123,17 @@ form {
   margin-top: 0;
 }
 
+/* ================================
+   15. FOOTER
+   ================================ */
+
 footer {
   padding: 1.5rem 0 2rem;
   font-size: 0.78rem;
   color: #6b7280;
 }
 
+/* Konten footer (copyright + link naik ke atas) */
 .footer-inner {
   display: flex;
   flex-direction: column;
@@ -981,13 +1153,18 @@ footer {
   justify-content: center;
 }
 
+/* Link di footer dengan garis bawah titik-titik */
 .footer-links a {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 2px;
 }
 
-/* Nav responsive */
+/* ================================
+   16. RESPONSIVE NAV & HERO
+   ================================ */
+
+/* Di layar agak besar (>=780px), tulis label menu tampil */
 @media (min-width: 780px) {
   .nav-links a span.label {
     display: inline;
@@ -998,13 +1175,14 @@ footer {
   }
 }
 
+/* Di layar kecil (<=720px), tata ulang navbar & hero */
 @media (max-width: 720px) {
   .nav {
-    flex-wrap: wrap;
+    flex-wrap: wrap;   /* Supaya elemen bisa turun ke baris berikutnya */
   }
 
   .nav-links {
-    order: 3;
+    order: 3;          /* Pindahkan menu ke baris bawah */
     width: 100%;
     justify-content: space-between;
     padding-top: 0.2rem;
@@ -1024,11 +1202,13 @@ footer {
     margin-top: 0.4rem;
   }
 
+  /* Statistik menjadi 2 kolom di HP */
   .hero-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Di layar sangat kecil (<=480px), statistik jadi 1 kolom */
 @media (max-width: 480px) {
   .hero-stats {
     grid-template-columns: minmax(0, 1fr);
@@ -1039,6 +1219,3 @@ footer {
     justify-content: flex-end;
   }
 }
-
-
-
