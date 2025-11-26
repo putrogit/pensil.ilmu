@@ -70,28 +70,6 @@ header {
   color: var(--cream);
 }
 
-..brand-icon {
-  background: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  width: auto;
-  height: auto;
-  padding: 0;
-}
-
-.brand-icon::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: inherit;
-  border: 1px solid rgba(248, 250, 252, 0.4);
-}
-
-.brand-icon i {
-  color: #fefce8;
-  font-size: 1.2rem;
-}
-
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -1067,4 +1045,5 @@ footer {
     justify-content: flex-end;
   }
 }
+
 
