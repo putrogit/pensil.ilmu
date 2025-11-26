@@ -32,12 +32,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
 /* Layout utama */
 .container {
   width: 100%;
@@ -1045,5 +1039,6 @@ footer {
     justify-content: flex-end;
   }
 }
+
 
 
