@@ -1,3 +1,4 @@
+
 /* ================================
    1. VARIABEL GLOBAL (PALET WARNA)
    ================================ */
@@ -76,7 +77,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   gap: 1rem;
 }
 
@@ -1161,45 +1162,38 @@ footer {
 }
 
 /* ================================
-   16. RESPONSIVE NAV & HERO
-   ================================ */
+   16. RESPONSIVE NAV & HERO
+   ================================ */
 
 /* Di layar agak besar (>=780px), tulis label menu tampil */
 @media (min-width: 780px) {
-  .nav-links a span.label {
-    display: inline;
-  }
+  .nav-links a span.label {
+    display: inline;
+  }
 
-  .nav-links a span.icon {
-    font-size: 0.85rem;
-  }
+  .nav-links a span.icon {
+    font-size: 0.85rem;
+  }
 }
 
 /* Di layar kecil (<=720px), tata ulang navbar & hero */
 @media (max-width: 720px) {
-  .nav {
-    flex-wrap: wrap;   /* Supaya elemen bisa turun ke baris berikutnya */
-    
-    /* BARIS PENTING YANG DIMODIFIKASI */
-    /* Mengurangi padding horizontal (0.5rem) agar logo lebih ke kiri di HP */
-    padding: 0.75rem 0.5rem; 
-  }
+  .nav {
+    flex-wrap: wrap;   /* Supaya elemen bisa turun ke baris berikutnya */
+  }
 
-  .nav-links {
-    order: 3;          /* Pindahkan menu ke baris bawah */
-    width: 100%;
-    justify-content: space-between;
-    padding-top: 0.2rem;
-    border-top: 1px dashed rgba(51, 65, 85, 0.8);
-    margin-top: 0.4rem;
-  }
+  .nav-links {
+    order: 3;          /* Pindahkan menu ke baris bawah */
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0.2rem;
+    border-top: 1px dashed rgba(51, 65, 85, 0.8);
+    margin-top: 0.4rem;
+  }
 
-  .nav-cta {
-    margin-left: auto;
-  }
-
-    /* ... kode lain di bawah ... */
-}
+  .nav-cta {
+    margin-left: auto;
+  }
 
   .hero-section {
     padding-top: 1.7rem;
@@ -1226,8 +1220,6 @@ footer {
     justify-content: flex-end;
   }
 }
-
-
 
 
 
